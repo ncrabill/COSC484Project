@@ -2,28 +2,45 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<title> Course Connect - Login </title>
-<meta charset="utf-8">
-<script> </script>
+    <title> Course Connect - Login </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="loginandregistration.css" type=text/css />
+    <script> </script>
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <nav>
+                <label for="text"><b>Course Connect</b></label>
+                <ul>
+                    <li><a href="./mainpage.html">Home</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                    <li><a href="./registration.html">Registration</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
     <h1>Login</h1>
 
     <form id="login">
         <fieldset>
-        <div>
-            <label for="email"><b> Email</b> </label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
+            <div>
+                <label for="email"><b> Email</b> </label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
 
-        <div>
-            <label for="password"> <b> Password </b> </label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        </div>
+            <div>
+                <label for="password"> <b> Password </b> </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
 
-        <input type="submit" value="Submit">
+            <input type="submit" value="Submit">
         </fieldset>
     </form>
 </body>

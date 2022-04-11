@@ -1,0 +1,71 @@
+h1{
+    text-align: center;
+    padding: 250px 0 100px 0;
+}
+
+form{
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px, black;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+fieldset input{
+    border-style: hidden;
+    text-align: center;
+    padding: 0 0 5px 0;
+}
+
+fieldset label{
+    padding: 0 0 5px 0;
+}
+
+
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+header{
+    background: #FFBB00;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav{
+    text-align: center;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0 35px;
+}
+
+li text{
+    text-align: left;
+}
+
+input[type=button], input[type=submit] {
+    border: none;
+    border-collapse: collapse;
+    background-color: #FFBB00;
+    color: black;
+    cursor: pointer;
+    margin: 4px 2px;
+    text-decoration: none;
+    padding: 10px 0 0 0;
+    width: 75px;
+    height: auto;
+}
