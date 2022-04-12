@@ -1,0 +1,101 @@
+body{
+    background-image : linear-gradient(orange,white);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    font-family: sans-serif;
+}
+
+/*navbar*/
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav{
+    text-align: center;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0 35px;
+}
+
+li text{
+    text-align: center;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover{
+    color: white;
+}
+
+/*body/form*/
+h1{
+    text-align: center;
+    padding: 250px 0 100px 0;
+}
+
+form{
+    text-align: center;
+}  
+
+form h2{
+    text-align: center;
+    padding: 250px 0 0 0;
+}
+
+
+fieldset{
+    border: hidden;
+}
+
+fieldset input{
+    display: inline-block;
+    border-style: hidden;
+    text-align: center;
+    clear: left;
+    padding: 0 0 5px 0;
+}
+
+fieldset label{
+    display: inline-block;
+    clear: left;
+    width: 100px;
+    text-align: center;
+}
+
+fieldset div{
+    padding: 0 0 10px 0;
+}
+
+
+input[type=button], input[type=submit] {
+    border: none;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+    cursor: pointer;
+    margin: 4px 2px;
+    text-decoration: none;
+    padding: 10px 0 0 0;
+    width: 75px;
+    height: auto;
+}
