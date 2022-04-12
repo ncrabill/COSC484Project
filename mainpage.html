@@ -4,20 +4,98 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="mainpage.css">
+    <script src="mainpage.js"></script> 
     <title></title>
 </head>
 <body>
-<h1 id="below"> Welcome to ...</h1>
-<form>
-     <a id = "url1"href="https://google.com/">Sign up</a><br>
-     <a id = "url1"href="https://google.com/">Log in</a><br>
-    <label>Greetings! Feel free to search for your class!</label>
+
+    <!-- second parameter of autocomplete function-->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- <label for="text"><b>Course Connect</b></label> -->
+                <ul>
+                    <li><a href="./mainpage.html">Home</a></li>
+                    <li><a href="./login.html">Login / Sign Up</a></li>
+                    <li><a href="./registration.html">Registration</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<br>
+<h1 id="below"> Welcome to Course Connect</h1>
+
+<form autocomplete="off">
+    <label>Greetings! Search for your class to find reviews!</label>
     <fieldset id="signup">
-         <br>Acronym
-         <input class="input" required name="acrField" />
-         <br>Number
-         <input class="input" required name="numField" />
-     </fieldset>
+        <table>
+            <tr>
+                <td align="left" >Department</td>
+                <td>
+                    <input type="text" name="q" id="q" <span style="font-weight: 400;">onKeyUp</span>="showResults(this.value)" />
+
+
+                    <input type="type" name="deptField" id="deptInput" required <span style="font-weight: 400;">onKeyUp</span>="showResults(this.value)" />
+                    <div id="result"></div>
+                    
+                    <!-- <div class="autocomplete" >
+                    <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" />
+                     <script>autocomplete(document.getElementById("deptInput"), dept)</script>
+                    </div> -->
+                </td>
+            </tr>
+            <tr>
+                <td align="left" >Number</td>
+                <td>
+                    <input class="input" required name="numField" maxlength="4" size="4" />
+                </td>
+            </tr>
+
+        </table>
+    
+         <!-- <br>Department
+         <div class="autocomplete" >
+            <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" />
+            <script>autocomplete(document.getElementById("deptInput"), dept)</script>
+        </div>
+          <select id="department">
+            <option value = "AADS">AADS</option>
+            <option value = "ACCT">ACCT</option>
+            <option value = "ACSD">ACSD</option>
+            <option value = "AFST">AFST</option>
+            <option value = "AHLT">AHLT</option>
+            <option value = "AIT">AIT</option>
+            <option value = "AMST">AMST</option>
+            <option value = "ANTH">ANTH</option>
+            <option value = "ARAB">ARAB</option>
+            <option value = "ARED">ARED</option>
+            <option value = "ART">ART</option>
+            <option value = "ARTH">ARTH</option>
+            <option value = "ASST">ASST</option>
+            <option value = "ASTR">ASTR</option>
+            <option value = "ATTR">ATTR</option>
+            <option value = "BIOL">BIOL</option>
+            <option value = "BUSX">BUSX</option>
+            <option value = "CHEM">CHEM</option>
+            <option value = "CHNS">CHNS</option>
+            <option value = "CIS">CIS</option>
+            <option value = "CLST">CLST</option>
+            <option value = "COMM">COMM</option>
+            <option value = "COSC">COSC</option>
+            <option value = "CRMJ">CRMJ</option>
+            <option value = "DANC">DNAC</option>
+            <option value = "DFST">DFST</option>
+            <option value = "EBTM">EBTM</option>
+         </select><br> -->
+
+         <!-- <br><br>Number
+         <input class="input" required name="numField" maxlength="4" size="4" /><br> -->
+         <!-- <select id="numCourse">
+             <option value="" disabled selected>Select department first</option>
+         </select> -->
+         <br><button class="button">Look for my course</button>
+     </fieldset> 
      <label>Hope you enjoy!</label>
 </form>
 </body>
