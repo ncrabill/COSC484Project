@@ -1,0 +1,84 @@
+#TuName {
+    color: black;
+  }
+  h1 {
+    color: darkorange;
+    text-align: center;
+  
+  }
+  h2 {
+    font-weight: bold;
+  }
+  html{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  body{
+    background-image: linear-gradient(to right,darkorange,white,black );
+    min-height: 100%;
+    margin: 0px;
+  }
+  form{
+    display: inline-block;
+  }
+  #AddReview{
+    text-align: center;
+    border : solid 1px black;
+    max-width : 50%;
+    background-color: darkgoldenrod;
+    width: 100%;
+    font-size: larger;
+    box-shadow: 5px 10px 8px 10px black;
+    
+  }
+  label{
+    font-size: large;
+    font-weight: bold;
+  }
+  #NumRating , #ProfRating, #NewProf{
+    width :150px;
+    font-weight: bold;
+    font-size: medium;
+    background-color: aliceblue;
+  }
+  select{
+    width: max-content;
+    width:150px;
+    font-weight: bold;
+    font-size: medium;
+    background-color: aliceblue;
+  }
+  textarea{
+    resize: none;
+    font-weight: bold;
+    font-size: larger;
+    background-color:aliceblue;
+    width: max-content;
+  }
+  #SubmitReview{
+    transition-duration: 0.4s;
+    font-size: large;
+    font-weight: bold;
+    border: 5px solid green;
+    
+  }
+  #SubmitReview:hover{
+    background-color: green;
+    color: black;
+  }
+  .card{
+    box-shadow: 5px 10px 8px 10px black;
+    width: 80%;
+    max-width:400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: darkgoldenrod;
+    font-weight: bold;
+    font-size: large;
+  }
+  #tuImage{
+    width:120px ;
+    height: 100px;
+  }
