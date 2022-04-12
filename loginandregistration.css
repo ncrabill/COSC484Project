@@ -1,40 +1,16 @@
-h1{
-    text-align: center;
-    padding: 250px 0 100px 0;
+body{
+    background-image : linear-gradient(orange,white);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    font-family: sans-serif;
 }
 
-form{
-    text-align: center;
-    border-collapse: collapse;
-    border: 1px, black;
-    margin-left: 500px;
-    margin-right: 500px;
-}
-
-form h2{
-    text-align: center;
-    padding: 250px 0 0 0;
-}
-
-fieldset input{
-    border-style: hidden;
-    text-align: center;
-    padding: 0 0 5px 0;
-}
-
-fieldset label{
-    padding: 0 0 5px 0;
-}
-
-
-
+/*navbar*/
 .container{
     width: 80%;
     margin: 0 auto;
-}
-
-header{
-    background: #FFBB00;
 }
 
 header::after{
@@ -62,10 +38,58 @@ li text{
     text-align: left;
 }
 
+li a{
+    color: black;
+}
+
+li a:hover{
+    color: white;
+}
+
+/*body/form*/
+h1{
+    text-align: center;
+    padding: 250px 0 100px 0;
+}
+
+form{
+    text-align: center;
+}  
+
+form h2{
+    text-align: center;
+    padding: 250px 0 0 0;
+}
+
+
+fieldset{
+    border: hidden;
+}
+
+fieldset input{
+    display: inline-block;
+    border-style: hidden;
+    text-align: center;
+    clear: left;
+    padding: 0 0 5px 0;
+}
+
+fieldset label{
+    display: inline-block;
+    clear: left;
+    width: 100px;
+    text-align: center;
+}
+
+fieldset div{
+    padding: 0 0 10px 0;
+}
+
+
 input[type=button], input[type=submit] {
     border: none;
     border-collapse: collapse;
-    background-color: #FFBB00;
+    background: white;
     color: black;
     cursor: pointer;
     margin: 4px 2px;
