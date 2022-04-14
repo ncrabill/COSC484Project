@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="mainpage.css">
-    <script src="mainpage.js"></script> 
     <title></title>
 </head>
-<body>
 
-    <!-- second parameter of autocomplete function-->
+<script src="mainpage.js"></script> 
+<body>
     <header>
         <div class="container">
             <nav>
@@ -27,22 +26,23 @@
 <h1 id="below"> Welcome to Course Connect</h1>
 
 <form autocomplete="off">
-    <label>Greetings! Search for your class to find reviews!</label>
+    <label>Greetings! Search for your course to find the top professor</label>
     <fieldset id="signup">
         <table>
             <tr>
                 <td align="left" >Department</td>
                 <td>
-                    <input type="text" name="q" id="q" <span style="font-weight: 400;">onKeyUp</span>="showResults(this.value)" />
-
-
-                    <input type="type" name="deptField" id="deptInput" required <span style="font-weight: 400;">onKeyUp</span>="showResults(this.value)" />
-                    <div id="result"></div>
-                    
-                    <!-- <div class="autocomplete" >
-                    <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" />
-                     <script>autocomplete(document.getElementById("deptInput"), dept)</script>
-                    </div> -->
+                    <div class="autocomplete" >
+                        <!-- <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" /> -->
+                        <select id="department">
+                            <option value = "AADS">AADS</option>
+                            <option value = "ACCT">ACCT</option>
+                            <option value = "ACSD">ACSD</option>
+                            <option value = "CIS">CIS</option>
+                            <option value = "CLST">CLST</option>
+                            <option value = "COMM">COMM</option>
+                        </select><br>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -51,50 +51,10 @@
                     <input class="input" required name="numField" maxlength="4" size="4" />
                 </td>
             </tr>
-
         </table>
-    
-         <!-- <br>Department
-         <div class="autocomplete" >
-            <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" />
-            <script>autocomplete(document.getElementById("deptInput"), dept)</script>
-        </div>
-          <select id="department">
-            <option value = "AADS">AADS</option>
-            <option value = "ACCT">ACCT</option>
-            <option value = "ACSD">ACSD</option>
-            <option value = "AFST">AFST</option>
-            <option value = "AHLT">AHLT</option>
-            <option value = "AIT">AIT</option>
-            <option value = "AMST">AMST</option>
-            <option value = "ANTH">ANTH</option>
-            <option value = "ARAB">ARAB</option>
-            <option value = "ARED">ARED</option>
-            <option value = "ART">ART</option>
-            <option value = "ARTH">ARTH</option>
-            <option value = "ASST">ASST</option>
-            <option value = "ASTR">ASTR</option>
-            <option value = "ATTR">ATTR</option>
-            <option value = "BIOL">BIOL</option>
-            <option value = "BUSX">BUSX</option>
-            <option value = "CHEM">CHEM</option>
-            <option value = "CHNS">CHNS</option>
-            <option value = "CIS">CIS</option>
-            <option value = "CLST">CLST</option>
-            <option value = "COMM">COMM</option>
-            <option value = "COSC">COSC</option>
-            <option value = "CRMJ">CRMJ</option>
-            <option value = "DANC">DNAC</option>
-            <option value = "DFST">DFST</option>
-            <option value = "EBTM">EBTM</option>
-         </select><br> -->
 
-         <!-- <br><br>Number
-         <input class="input" required name="numField" maxlength="4" size="4" /><br> -->
-         <!-- <select id="numCourse">
-             <option value="" disabled selected>Select department first</option>
-         </select> -->
          <br><button class="button">Look for my course</button>
+
      </fieldset> 
      <label>Hope you enjoy!</label>
 </form>

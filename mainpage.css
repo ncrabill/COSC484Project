@@ -7,7 +7,7 @@ body{
     background-size: auto;
     background-image : linear-gradient(white,goldenrod);
     /* background-image: url('images/bus_building.jpg');  */
-    background-repeat: no-repeat;
+    background-repeat: no-repeat center fixed;
 }
 .container{
     float: right;
