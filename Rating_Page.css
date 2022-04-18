@@ -1,21 +1,47 @@
-#TuName {
-    color: black;
+
+  .container{
+    float: right;
+    width: 80%;
+    margin: 0 auto;
+    
   }
-  h1 {
-    color: darkorange;
-    text-align: center;
+  nav{
+    text-align: right;
+  }
+
+  nav ul{
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+  }
+
+  nav li{
+    display: inline-block;
+    margin: 0 15px;
+  }
+ 
+  a{
+    outline: none;
+    text-decoration: none;
+    padding: 20px 1px 0;
+    color: black;
+    font: bolder;
+}
   
+  h1 {
+    color: Black;
+    text-align: center;
   }
   h2 {
     font-weight: bold;
   }
   html{
     margin: 0px;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
   }
   body{
-    background-image: linear-gradient(to right,darkorange,white,black );
+    background-image: linear-gradient(orange,white);
     min-height: 100%;
     margin: 0px;
   }
