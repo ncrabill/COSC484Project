@@ -1,9 +1,8 @@
 body{
-    background-image : linear-gradient(orange,white);
+    background: linear-gradient(white,Gold) no-repeat center center fixed;
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
-
     font-family: sans-serif;
 }
 
@@ -11,6 +10,7 @@ body{
 .container{
     width: 80%;
     margin: 0 auto;
+    float: right;
 }
 
 header::after{
@@ -20,7 +20,7 @@ header::after{
 }
 
 nav{
-    text-align: center;
+    text-align: right;
 }
 
 nav ul{
@@ -35,7 +35,7 @@ nav li{
 }
 
 li text{
-    text-align: center;
+    text-align: right;
 }
 
 li a{
