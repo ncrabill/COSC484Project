@@ -5,9 +5,10 @@ body{
     line-break: loose;
     text-align: center;
     background-size: auto;
-    background-image : linear-gradient(white,goldenrod);
+    background-image : linear-gradient(white,orange);
     /* background-image: url('images/bus_building.jpg');  */
     background-repeat: no-repeat center fixed;
+    min-height: 100px;
 }
 .container{
     float: right;
@@ -32,7 +33,8 @@ nav li{
 h1{
     font-weight: 100;
     margin: 20px;
-    font-size: 38; 
+    font-size: 60px; 
+    padding: 20px;
 }
 table{
     margin-left: auto;
@@ -61,7 +63,6 @@ a:hover{
     display: block;
     margin: 10px;
 } */
-
 
 
 fieldset{
@@ -106,7 +107,6 @@ button{
     font-size: 20px;
 }
 
-
 .context{
     font-size: 30px;
 }
@@ -116,10 +116,11 @@ button{
     height: 20px;
 }
 
-#below{
-    font-size:75px;
-    padding: 100px;
-}
+/* #below{
+    margin: auto;
+    font-size:60px;
+   /*padding: 100px;*/
+} */
 
 #sub{
     font-size:30px;
@@ -128,7 +129,7 @@ button{
 
 
 
-#result {
+/* #result {
     border: 1px dotted #ccc;
     padding: 3px;
   }
@@ -142,4 +143,4 @@ button{
   }
   #result ul li:hover {
     background: #eee;
-  }
+  } */
