@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Professor Rating</title>
-    <link rel="stylesheet" href="Rating_Page.css" />
+    
+    <link rel="stylesheet" href="/Rating_Page.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <script defer type = "text/javascript" src = Review.js ></script>
+    <script defer type = "text/javascript" src = /Rating_Page.js ></script>
   </head>
   <body>
     <header>
@@ -44,7 +45,7 @@
       <div class="form-group">
         <tr>
           <td><label for="RevHeader">One word Rating</label></td>
-          <td><select id="RevHeader" name = 'OneWordRev'>
+          <td><select id="RevHeader" name = 'OneWordRev' required>
             <option value="Great" style="background-color: green;">Great</option>
             <option value = "Good" style="background-color: lightgreen;">Good</option>
             <option value="Neutral" style="background-color: gray;">Neutral</option>
@@ -54,7 +55,7 @@
         </tr>
         <tr>
         <td><label for="Grade">Earned Grade</label></td>
-        <td ><select id="Grade" name = 'LetterGrade'>
+        <td ><select id="Grade" name = 'LetterGrade' required>
           <option value="A" style="background-color: green;">A</option>
           <option value="B" style="background-color: lightgreen;">B</option>
           <option value="C" style="background-color: gray;">C</option>
@@ -64,11 +65,11 @@
         </tr>
         <tr>
         <td><label for = "NumRating">Class Rating(1-10)</label></td>
-        <td><input type="number" id = "NumRating" name = "NumRating" min = 1 max = 10></td>
+        <td><input type="number" id = "NumRating" name = "NumRating" min = 1 max = 10 required></td>
         </tr>
         <tr>
           <td><label for="ProfessorTaken">Choose professor Taken</label></td>
-          <td><select name="ProfTaken" id="CurrentProfs">
+          <td><select name="ProfTaken" id="CurrentProfs" required>
             <option>Prof1</option>
             <option>Prof2</option>
             <option>Prof3</option>
@@ -78,7 +79,7 @@
         
         <tr>
           <td><Label for = "ProfRating">Professor Rating(1-10)</Label></td>
-          <td><input type="number" id="ProfRating" name = ProfRating min="1" max="10"></td>
+          <td><input type="number" id="ProfRating" name = ProfRating min="1" max="10" required></td>
         </tr>
       </table>
       <span><b>Write Your Review:</b></span><br/>
@@ -94,7 +95,7 @@
     <h2 id="Reviews"><u>Reviews</u></h2>
     <div class="card">
       <div class="profile-sidebar">
-        <img src="towson.png" alt="" id="tuImage" />
+        <img src="/towson.png" alt="" id="tuImage" />
       </div>
 
       <div class="Review-main">
