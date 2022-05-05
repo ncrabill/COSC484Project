@@ -39,7 +39,7 @@
 
     <h2><u>Add your Review</u></h2>
     <!--ADD REVIEW FORM START-->
-    <form id="AddReview" method="get" value = onSumbit>
+    <form id="AddReview" method="post" action = "/" value = onSumbit>
       <table>
       <div class="form-group">
         <tr>
@@ -64,11 +64,11 @@
         </tr>
         <tr>
         <td><label for = "NumRating">Class Rating(1-10)</label></td>
-        <td><input type="number" id = "NumRating" min = 1 max = 10></td>
+        <td><input type="number" id = "NumRating" name = "NumRating" min = 1 max = 10></td>
         </tr>
         <tr>
           <td><label for="ProfessorTaken">Choose professor Taken</label></td>
-          <td><select name="Current Professors" id="CurrentProfs">
+          <td><select name="ProfTaken" id="CurrentProfs">
             <option>Prof1</option>
             <option>Prof2</option>
             <option>Prof3</option>
@@ -78,14 +78,14 @@
         
         <tr>
           <td><Label for = "ProfRating">Professor Rating(1-10)</Label></td>
-          <td><input type="number" id="ProfRating" min="1" max="10"></td>
+          <td><input type="number" id="ProfRating" name = ProfRating min="1" max="10"></td>
         </tr>
       </table>
       <span><b>Write Your Review:</b></span><br/>
-      <textarea id="Summary" cols="50" rows="10"></textarea><br/>
-
+      <textarea id="Summary" name = "Summary" cols="50" rows="10"></textarea><br/>
+      
       <button
-      type="submit" id = SubmitReview> Submit Review</button>
+       type="submit" id = SubmitReview> Submit Review</button>
       </div>
     </form>
     <!--ADD REVIEW FORM END -->
