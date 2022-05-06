@@ -3,9 +3,12 @@ const express = require("express");
 const app = express()
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser");
+const ejs = require('ejs');
+
+
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}))
-
  const reviewSchema = {
     oneWord: String,
     grade: String, 
@@ -16,9 +19,16 @@ app.use(bodyParser.urlencoded({extended: true}))
 }
 const Review = mongoose.model("reviews", reviewSchema);
 app.use(express.static("public"))
-app.get("/", function(req,res){
-    res.sendFile(__dirname + "/Rating_Page.html");
+
+
+app.get("/",(req,res) => {
+    Review.find({}, function(err,reviews){
+        res.render('Rating_Page', {
+            reviewList: reviews
+        })
+    })
 })
+
 app.post("/", function(req, res){
     let review = new Review ({
         oneWord: req.body.OneWordRev,
@@ -34,7 +44,7 @@ mongoose.connect('mongodb+srv://jherre9:484test@cluster0.eve1b.mongodb.net/Cours
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
-    app.listen(8000, () => {
+    app.listen(3000, () => {
         console.log("Server is running on Port 8000")
     })
 })

@@ -90,26 +90,28 @@
       </div>
     </form>
     <!--ADD REVIEW FORM END -->
+    
 
     <!-- Reviews Start-->
     <h2 id="Reviews"><u>Reviews</u></h2>
-    <div class="card">
-      <div class="profile-sidebar">
-        <img src="/towson.png" alt="" id="tuImage" />
-      </div>
-
-      <div class="Review-main">
-        <h2 id="OWRating">Good</h2>
-        <p id="ErGrade">Grade: A</p>
-        <p id="RateNum">Class Rating : 5</p>
-        <p id="ProfTaken">Professor: Jal irani</p>
-        <p id="ProfNum">Professor Rating: 10</p>
-        <p id="WrittemRev">
-          The review and all of its contects will go in this section
-          knfdjbngjlbngjbndkjbnjkbngb fldngvjfdbv dafkvbkf
-        </p>
-      </div>
-    </div>
+    <%reviewList.forEach(review =>{%>
+        <div class="card">
+            <div class="profile-sidebar">
+              <img src="/towson.png" alt="" id="tuImage" />
+            </div>
+      
+            <div class="Review-main">
+              <h2 id="OWRating"><%=review.oneWord%></h2>
+              <p id="ErGrade"><%=review.grade%></p>
+              <p id="RateNum"><%=review.crating%></p>
+              <p id="ProfTaken"><%=review.professor%></p>
+              <p id="ProfNum"><%=review.prating%></p>
+              <p id="WrittemRev"><%=review.summary%></p>
+            </div>
+          </div>
+    <%})%>
+    
+    
 
   </body>
 </html>
