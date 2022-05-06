@@ -31,7 +31,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: 'abc123',
     resave: false,
     saveUninitialized: false,
 }))
@@ -40,9 +40,16 @@ app.use(passport.session())
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 
+app.get("/", checkNotAuthenticated, (req, res) => {
+    res.render("index");
+})
+
+/*
 app.get("/", checkAuthenticated, (req, res) => {
     res.render("index", { name: req.user.name });
 })
+*/
+
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render("register")
@@ -60,7 +67,6 @@ app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
 
 app.post("/register", checkNotAuthenticated, async (req, res) => {
     const userFound = await User.findOne({ email: req.body.email })
-
     if (userFound) {
         req.flash("error", "User with that email already exists")
         res.redirect("/register")
@@ -72,7 +78,6 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
                 email: req.body.email,
                 password: hashedPassword,
             })
-
             await user.save()
             res.redirect("/login")
         } catch (error) {
@@ -80,11 +85,6 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
             res.redirect("/register")
         }
     }
-})
-
-app.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/login')
 })
 
 mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {

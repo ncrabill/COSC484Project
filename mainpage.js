@@ -23,5 +23,3 @@ function showResults(val){
     }
     res.innerHTML = '<ul>' + list + '</ul>'
  }
-
-
