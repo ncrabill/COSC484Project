@@ -1,33 +1,46 @@
+*{
+
+    box-sizing: border-box;
+}
+
 body{
     margin: 0 auto;
     font-family: sans-serif;
     margin: 10px;
     line-break: loose;
-    text-align: center;
     background-size: auto;
-    background-image : linear-gradient(white,orange);
+    background: linear-gradient(white,orange) no-repeat center center fixed;
     /* background-image: url('images/bus_building.jpg');  */
-    background-repeat: no-repeat center fixed;
-    min-height: 100px;
+    place-items: center;
+    display: grid;
 }
+
+/*nav bar*/
 .container{
-    float: right;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-}
-nav{
-    text-align: right;
+    float: center;
+    margin-bottom: 200px;
 }
 
 nav ul{
-    margin: 0;
-    padding: 10px;
+    float: center;
     list-style: none;
+    white-space: nowrap;
 }
 
 nav li{
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 35px;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover{
+    color: gold;
 }
 
 h1{
@@ -48,12 +61,6 @@ td{
     padding-bottom: 6px;
 }
 
-a{
-    outline: none;
-    text-decoration: none;
-    padding: 20px 1px 0;
-    color: black;
-}
 a:hover{
     color: goldenrod;
 }
@@ -84,7 +91,6 @@ fieldset{
     right: 0;
 }
 .autocompete-items div{
-    padding:10px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4

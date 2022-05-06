@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
+
     box-sizing: border-box;
 }
 
+
 body{
-    background-image: linear-gradient(white,orange);
-    display: grid;
+    margin: 0 auto;
+    font-family: sans-serif;
+    margin: 10px;
+    line-break: loose;
+    background-size: auto;
+    background: linear-gradient(white,orange) no-repeat center center fixed;
+    /* background-image: url('images/bus_building.jpg');  */
     place-items: center;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Source Sans Pro', sans-serif;
+    display: grid;
 }
 
 .main{
@@ -22,6 +25,8 @@ body{
     background-color: white;
     padding: 25px 20px;
     border-radius: 10px;
+    text-align: center;
+    min-height: 100px;
 }
 
 .main > h1 {
@@ -54,4 +59,31 @@ body{
 .main > form > input:focus,
 .main > form > button:focus{
     outline: none;
+}
+/*navbar*/
+.container{
+    width: 100%;
+    margin: 0 auto;
+    float: center;
+    margin-bottom: 200px;
+}
+
+nav ul{
+    float: center;
+    list-style: none;
+    white-space: nowrap;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0 35px;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover{
+    color: goldenrod;
 }
