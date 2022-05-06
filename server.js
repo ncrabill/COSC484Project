@@ -44,12 +44,15 @@ app.get("/", checkNotAuthenticated, (req, res) => {
     res.render("index");
 })
 
+app.get("/authorized", checkAuthenticated, (req, res) => {
+    res.render("authorized", { name: req.user.name }); 
+})
+
 /*
 app.get("/", checkAuthenticated, (req, res) => {
     res.render("index", { name: req.user.name });
 })
 */
-
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render("register")
@@ -60,7 +63,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 })
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/authorized",
     failureRedirect: "/login",
     failureFlash: true,
 }))
