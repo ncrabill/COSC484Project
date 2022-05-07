@@ -29,7 +29,7 @@ app.get("Rating_Page",(req,res) => {
     })
 })
 
-app.post("Rating_Page", function(req, res){
+app.post("Rating_Page", async(req, res)=>{
     let review = new Review ({
         oneWord: req.body.OneWordRev,
         grade: req.body.LetterGrade, 

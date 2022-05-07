@@ -41,7 +41,7 @@ app.use(passport.session())
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
  const reviewSchema = {
     oneWord: String,
     grade: String, 
@@ -108,7 +108,7 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
         }
     }
 })
-app.post("/Rating_Page", function (req, res){
+app.post("/", function (req, res) {
     let review = new Review ({
         oneWord: req.body.OneWordRev,
         grade: req.body.LetterGrade, 
@@ -117,8 +117,8 @@ app.post("/Rating_Page", function (req, res){
         prating: req.body.ProfRating,
         summary: req.body.Summary
     });
-    res.send(review);
     review.save();
+    res.redirect("/Rating_Page");
 });
 
 mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {
