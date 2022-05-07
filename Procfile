@@ -1,1 +1,1 @@
-web: node mainpage.js
+web: node index.ejs
