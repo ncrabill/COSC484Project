@@ -8,7 +8,7 @@ const ejs = require('ejs');
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
  const reviewSchema = {
     oneWord: String,
     grade: String, 
@@ -21,7 +21,7 @@ const Review = mongoose.model("reviews", reviewSchema);
 app.use(express.static("public"))
 
 
-app.get("/",(req,res) => {
+app.get("Rating_Page",(req,res) => {
     Review.find({}, function(err,reviews){
         res.render('Rating_Page', {
             reviewList: reviews
@@ -29,7 +29,7 @@ app.get("/",(req,res) => {
     })
 })
 
-app.post("/", function(req, res){
+app.post("Rating_Page", function(req, res){
     let review = new Review ({
         oneWord: req.body.OneWordRev,
         grade: req.body.LetterGrade, 
@@ -40,11 +40,11 @@ app.post("/", function(req, res){
     });
     review.save();
 });
-mongoose.connect('mongodb+srv://jherre9:484test@cluster0.eve1b.mongodb.net/CourseConnect?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
-    app.listen(3000, () => {
+    app.listen(8000, () => {
         console.log("Server is running on Port 8000")
     })
 })
