@@ -26,7 +26,11 @@
     padding: 20px 1px 0;
     color: black;
     font: bolder;
-}
+  }
+
+  a:hover{
+    color: white;
+  }
   
   h1 {
     color: Black;
