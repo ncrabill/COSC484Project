@@ -94,7 +94,7 @@ mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongo
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
-    app.listen(8000, () => {
+    app.listen(process.env.PORT || 8000, () => {
         console.log("Server is running on Port 8000")
     })
 })
