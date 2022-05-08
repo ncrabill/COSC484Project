@@ -3,22 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>Professor Rating</title>
-    
+    <script src="../server.js"></script>
     <link rel="stylesheet" href="/Rating_Page.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <script defer type = "text/javascript" src = /Rating_Page.js ></script>
   </head>
   <body>
     <header>
       <div class="container">
         <nav>
           <ul>
-            <li><a href="./mainpage.html" >Home</a></li>
-            <li><a href="./login.html" >Login / Sign Up</a></li>
-            <li><a href="./registration.html">Registration</a></li>
+            <li><a href="./" >Home</a></li>
+            <li><a href="./login" >Login / Sign Up</a></li>
+            <li><a href="./register">Registration</a></li>
           </ul>
         </nav>
       </div>
@@ -102,11 +101,11 @@
       
             <div class="Review-main">
               <h2 id="OWRating"><%=review.oneWord%></h2>
-              <p id="ErGrade"><%=review.grade%></p>
-              <p id="RateNum"><%=review.crating%></p>
-              <p id="ProfTaken"><%=review.professor%></p>
-              <p id="ProfNum"><%=review.prating%></p>
-              <p id="WrittemRev"><%=review.summary%></p>
+              <p id="ErGrade"><b><i>Grade: </i></b><%=review.grade%></p>
+              <p id="RateNum"><b><i>Class Rating: </i></b><%=review.crating%></p>
+              <p id="ProfTaken"><b><i>Professor: </i></b><%=review.professor%></p>
+              <p id="ProfNum"><b><i>Professor Rating: </i></b><%=review.prating%></p>
+              <p id="WrittemRev"><p><b><i><u>Summary</u></i></b></p><%=review.summary%></p>
             </div>
           </div>
     <%})%>

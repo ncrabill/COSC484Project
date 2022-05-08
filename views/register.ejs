@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link rel = "stylesheet" href = "/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <nav>
-                <!-- <label for="text"><b>Course Connect</b></label> -->
-                <ul>
-                    <li><a href="./">Home</a></li>
-                    <li><a href="./login">Login</a></li>
-                    <li><a href="./register">Registration</a></li>
-                    <li><a href="./Rating_Page.ejs">Rating Page</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container">
+        <nav>
+          <!-- <label for="text"><b>Course Connect</b></label> -->
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="./login">Login</a></li>
+            <li><a href="./register">Registration</a></li>
+            <li><a href="./Rating_Page">Rating Page</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div class="main">
-        <h1>SIGN UP HERE</h1>
-        <% if (messages) { %>
-        <p><%= messages.error %></p>    
-        <% } %>
-        <form action = "/register" method = "POST">
-            <input 
-                type = "name" 
-                name = "name" 
-                placeholder = "Your Name"
-            />
-            <input 
-                type = "email" 
-                name = "email" 
-                placeholder = "Email Address"
-            />
-            <input 
-                type = "password" 
-                name = "password" 
-                placeholder = "Password"
-            />
-            <button>SIGN UP</button>
-        </form>
+      <h1>SIGN UP HERE</h1>
+      <% if (messages) { %>
+      <p><%= messages.error %></p>
+      <% } %>
+      <form action="/register" method="POST">
+        <input type="name" name="name" placeholder="Your Name" />
+        <input type="email" name="email" placeholder="Email Address" />
+        <input type="password" name="password" placeholder="Password" />
+        <button>SIGN UP</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>

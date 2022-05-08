@@ -7,6 +7,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const User = require('./models/User')
 const bcrypt = require('bcryptjs')
+const bodyParser = require("body-parser");
 const {
     checkAuthenticated,
     checkNotAuthenticated,
@@ -40,6 +41,17 @@ app.use(passport.session())
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 
+app.use(bodyParser.urlencoded({extended: true}))
+ const reviewSchema = {
+    oneWord: String,
+    grade: String, 
+    crating: Number,
+    professor: String,
+    prating: Number,
+    summary: String
+}
+const Review = mongoose.model("reviews", reviewSchema);
+
 app.get("/", checkNotAuthenticated, (req, res) => {
     res.render("index");
 })
@@ -62,7 +74,14 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
 
-app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
+app.get('/Rating_Page',(req,res) => {
+    Review.find({}, function(err,reviews){
+        res.render('Rating_Page', {
+            reviewList: reviews
+        })
+    })
+})
+app.post("/login", checkAuthenticated, passport.authenticate("local", {
     successRedirect: "/authorized",
     failureRedirect: "/login",
     failureFlash: true,
@@ -89,6 +108,18 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
         }
     }
 })
+app.post("/", function (req, res) {
+    let review = new Review ({
+        oneWord: req.body.OneWordRev,
+        grade: req.body.LetterGrade, 
+        crating: req.body.NumRating,
+        professor:req.body.ProfTaken,
+        prating: req.body.ProfRating,
+        summary: req.body.Summary
+    });
+    review.save();
+    res.redirect("/Rating_Page");
+});
 
 mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
