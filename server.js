@@ -5,7 +5,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
-const User = require('./models/User')
+const User = require('./models/user')
 const bcrypt = require('bcryptjs')
 const bodyParser = require("body-parser");
 const {
