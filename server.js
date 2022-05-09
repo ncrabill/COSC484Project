@@ -78,8 +78,15 @@ app.get('/index', (req, res) => {
         })
     })
 })
+
+
 app.get("/authorized", checkAuthenticated, (req, res) => {
-    res.render("authorized", { name: req.user.name });
+    Dept.find({}, function (err, depts) {
+        res.render('authorized', {
+            name: req.user.name,
+            deptList: depts
+        })
+    })
 })
 
 /*
