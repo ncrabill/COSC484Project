@@ -41,45 +41,23 @@ app.use(passport.session())
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 
-app.use(bodyParser.urlencoded({ extended: true }))
-const reviewSchema = {
+app.use(bodyParser.urlencoded({extended: true}))
+ const reviewSchema = {
     oneWord: String,
-    grade: String,
+    grade: String, 
     crating: Number,
     professor: String,
     prating: Number,
     summary: String
 }
 const Review = mongoose.model("reviews", reviewSchema);
-const deptSchema = {
-    Name: String,
-    Classes: [String]
-}
-const Dept = mongoose.model("departments", deptSchema);
-var DeptOption = "Not Chosen";
-var classOption = 0;
-
-function choose(depart, classOp) {
-    DeptOption = depart
-    classOption = classOp
-}
 
 app.get("/", checkNotAuthenticated, (req, res) => {
-    Dept.find({}, function (err, depts) {
-        res.render('index', {
-            deptList: depts
-        })
-    })
+    res.render("index");
 })
-app.get('/index', (req, res) => {
-    Dept.find({}, function (err, depts) {
-        res.render('index', {
-            deptList: depts
-        })
-    })
-})
+
 app.get("/authorized", checkAuthenticated, (req, res) => {
-    res.render("authorized", { name: req.user.name });
+    res.render("authorized", { name: req.user.name }); 
 })
 
 /*
@@ -96,15 +74,14 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
 
-app.get('/Rating_Page', (req, res) => {
-    Review.find({}, function (err, reviews) {
+app.get('/Rating_Page',(req,res) => {
+    Review.find({}, function(err,reviews){
         res.render('Rating_Page', {
             reviewList: reviews
         })
     })
 })
-
-app.post("/login", checkAuthenticated, passport.authenticate("local", {
+app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/authorized",
     failureRedirect: "/login",
     failureFlash: true,
@@ -132,11 +109,11 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
     }
 })
 app.post("/", function (req, res) {
-    let review = new Review({
+    let review = new Review ({
         oneWord: req.body.OneWordRev,
-        grade: req.body.LetterGrade,
+        grade: req.body.LetterGrade, 
         crating: req.body.NumRating,
-        professor: req.body.ProfTaken,
+        professor:req.body.ProfTaken,
         prating: req.body.ProfRating,
         summary: req.body.Summary
     });
