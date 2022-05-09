@@ -24,14 +24,14 @@
     <title></title>
   </head>
 
-  <script src="mainpage.js"></script>
+  <script src="../server.js"></script>
   <body>
     <header>
       <div class="container">
         <nav>
           <!-- <label for="text"><b>Course Connect</b></label> -->
           <ul>
-            <li><a href="./">Home</a></li>
+            <li><a href="./index">Home</a></li>
             <li><a href="./login">Login</a></li>
             <li><a href="./register">Registration</a></li>
             <li><a href="./Rating_Page">Rating Page</a></li>
@@ -41,8 +41,8 @@
     </header>
     <br />
     <h1 id="below">Course Connect</h1>
-
-    <form autocomplete="off">
+    
+    <form autocomplete="off" action="/Rating_Page">
       <br />
       <br />
 
@@ -56,14 +56,11 @@
             <td align="left" class="context">Department</td>
             <td>
               <div class="autocomplete">
-                <!-- <input id="deptInput" class="input" required name="deptField" maxlength="4" size="4" /> -->
                 <select id="department" class="input">
-                  <option value="AADS">AADS</option>
-                  <option value="ACCT">ACCT</option>
-                  <option value="ACSD">ACSD</option>
-                  <option value="CIS">CIS</option>
-                  <option value="CLST">CLST</option>
-                  <option value="COMM">COMM</option></select
+                    <%deptList.forEach(dept =>{%>
+                        <option value="%=dept.Name%"><%=dept.Name%></option>
+                    <%})%>
+                  </select
                 ><br />
               </div>
             </td>
@@ -73,16 +70,17 @@
             <td>
               <input
                 class="input"
+                id = "classOp"
                 required
                 name="numField"
-                maxlength="4"
-                size="4"
+                maxlength="3"
+                size="3"
               />
             </td>
           </tr>
         </table>
 
-        <br /><button class="button">Look for my course</button>
+        <br /><button class="button" onclick="choose(document.getElementById("department").value, document.getElementById("classOp").value)">Look for my course</button>
       </fieldset>
     </form>
   </body>

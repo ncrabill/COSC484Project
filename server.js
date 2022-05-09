@@ -51,11 +51,33 @@ app.use(bodyParser.urlencoded({extended: true}))
     summary: String
 }
 const Review = mongoose.model("reviews", reviewSchema);
+const deptSchema = {
+    Name: String,
+    Classes: [String]
+}
+const Dept = mongoose.model("departments", deptSchema);
+var DeptOption = "Not Chosen";
+var classOption = 0;
+
+function choose(depart, classOp){
+    DeptOption = depart
+    classOption = classOp
+}
 
 app.get("/", checkNotAuthenticated, (req, res) => {
-    res.render("index");
+    Dept.find({}, function(err,depts){
+        res.render('index', {
+            deptList: depts 
+        })
+    })
 })
-
+app.get('/index',(req,res) => {
+    Dept.find({}, function(err,depts){
+        res.render('index', {
+            deptList: depts 
+        })
+    })
+})
 app.get("/authorized", checkAuthenticated, (req, res) => {
     res.render("authorized", { name: req.user.name }); 
 })
@@ -79,8 +101,8 @@ app.get('/Rating_Page',(req,res) => {
         res.render('Rating_Page', {
             reviewList: reviews
         })
-    })
 })
+
 app.post("/login", checkAuthenticated, passport.authenticate("local", {
     successRedirect: "/authorized",
     failureRedirect: "/login",

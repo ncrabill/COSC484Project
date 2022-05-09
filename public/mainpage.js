@@ -5,12 +5,12 @@ var dept = ['AADS', 'ACCT', 'ACSD','COSC','GEOG', 'MATH']
 
 
 
-app.use(bodyParser.urlencoded({extended: false}))
-const deptSchema = {
-    Name: String,
-    Classes: [String]
-}
-const Dept = mongoose.model("Departments", deptSchema);
+//app.use(bodyParser.urlencoded({extended: false}))
+//const deptSchema = {
+//    Name: String,
+//    Classes: [String]
+//}
+//const Dept = mongoose.model("Departments", deptSchema);
 function ttt(){
     document.getElementById("test").innerHTML = "help";
 }
