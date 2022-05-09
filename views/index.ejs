@@ -41,7 +41,7 @@
     </header>
     <br />
     <h1 id="below">Course Connect</h1>
-    
+
     <form autocomplete="off" action="/Rating_Page">
       <br />
       <br />
@@ -57,10 +57,9 @@
             <td>
               <div class="autocomplete">
                 <select id="department" class="input">
-                    <%deptList.forEach(dept =>{%>
-                        <option value="%=dept.Name%"><%=dept.Name%></option>
-                    <%})%>
-                  </select
+                  <%deptList.forEach(dept =>{%>
+                  <option><%=dept.Name%></option>
+                  <%})%></select
                 ><br />
               </div>
             </td>
@@ -70,7 +69,7 @@
             <td>
               <input
                 class="input"
-                id = "classOp"
+                id="classOp"
                 required
                 name="numField"
                 maxlength="3"
@@ -80,7 +79,12 @@
           </tr>
         </table>
 
-        <br /><button class="button" onclick="choose(document.getElementById("department").value, document.getElementById("classOp").value)">Look for my course</button>
+        <br /><button
+          class="button"
+          onclick='this.form.action=("/Rating_Page" + document.getElementById("department").value + document.getElementById("classOp").value);'
+        >
+          Look for my course
+        </button>
       </fieldset>
     </form>
   </body>

@@ -24,7 +24,7 @@
     </header>
     <div>
       <br>
-
+      <h1><%=datafound%></h1>
 
       <h1>Course Connect</h1>
       <h1 id="TuName">Towson University</h1>
@@ -91,23 +91,6 @@
     <!--ADD REVIEW FORM END -->
     
 
-    <!-- Reviews Start-->
-    <h2 id="Reviews"><u>Reviews</u></h2>
-    <%reviewList.forEach(review =>{%>
-        <div class="card">
-            <div class="profile-sidebar">
-              <img src="/towson.png" alt="" id="tuImage" />
-            </div>
-      
-            <div class="Review-main">
-              <h2 id="OWRating"><%=review.oneWord%></h2>
-              <p id="ErGrade"><b><i>Grade: </i></b><%=review.grade%></p>
-              <p id="RateNum"><b><i>Class Rating: </i></b><%=review.crating%></p>
-              <p id="ProfTaken"><b><i>Professor: </i></b><%=review.professor%></p>
-              <p id="ProfNum"><b><i>Professor Rating: </i></b><%=review.prating%></p>
-              <p id="WrittemRev"><p><b><i><u>Summary</u></i></b></p><%=review.summary%></p>
-            </div>
-          </div>
-    <%})%>
+   
   </body>
 </html>
