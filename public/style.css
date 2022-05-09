@@ -12,7 +12,7 @@ body{
     margin: 10px;
     line-break: loose;
     background-size: auto;
-    background: linear-gradient(white,orange) no-repeat center center fixed;
+    background: linear-gradient(orange,white) no-repeat center center fixed;
     /* background-image: url('images/bus_building.jpg');  */
     place-items: center;
     display: grid;
@@ -46,7 +46,7 @@ body{
 }
 
 .main > form > button{
-    background-color: #000000;
+    background-color: black;
     padding: 15px;
     width: 95%;
     border: none;
@@ -85,5 +85,5 @@ li a{
 }
 
 li a:hover{
-    color: goldenrod;
+    color: white;
 }

@@ -9,7 +9,7 @@ body{
     margin: 10px;
     line-break: loose;
     background-size: auto;
-    background: linear-gradient(white,orange) no-repeat center center fixed;
+    background: linear-gradient(orange,white) no-repeat center center fixed;
     /* background-image: url('images/bus_building.jpg');  */
     place-items: center;
     display: grid;
@@ -40,13 +40,13 @@ li a{
 }
 
 li a:hover{
-    color: gold;
+    color: white;
 }
 
 h1{
     font-weight: 100;
     margin: 20px;
-    font-size: 60px; 
+    font-size: 60px;
     padding: 20px;
 }
 table{

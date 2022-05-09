@@ -5,7 +5,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
-const User = require('./models/User')
+const User = require('./models/user')
 const bcrypt = require('bcryptjs')
 const bodyParser = require("body-parser");
 const {
@@ -147,7 +147,7 @@ mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongo
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
-    app.listen(8000, () => {
+    app.listen(process.env.PORT || 8000, () => {
         console.log("Server is running on Port 8000")
     })
 })
