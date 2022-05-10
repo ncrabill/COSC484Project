@@ -263,11 +263,11 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
 
-app.get("/*", (req, res)  => {
+app.get("/Rating_Page*", (req, res)  => {
     Dept.find({}, function (err, depts) {
         res.render('index', {
             deptList: depts,
-            error: "Not a recognized class"
+            error: "Chosen class has no reviews"
         })
     })
 })
