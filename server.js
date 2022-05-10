@@ -49,27 +49,30 @@ const deptSchema = {
 const Dept = mongoose.model("departments", deptSchema);
 
 
-/*app.get('/Rating_PageENGL190',(req,res) => {
+app.get('/Rating_PageENGL190',(req,res) => {
     Class.find({Dept:'ENGL', Num :190}, function(err,data){
+        var revs = data[0].Reviews
         res.render('Rating_Page', {
-            datafound:data
+            datafound:revs
         })
     })    
 })
 app.get('/Rating_PageENGL290',(req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
+        var revs = data[0].Reviews
         res.render('Rating_Page', {
-            datafound:data
+            datafound:revs
         })
     })    
 })
 app.get('/Rating_PageCOSC490',(req,res) => {
     Class.find({Dept:'COSC', Num :490}, function(err,data){
+        var revs = data[0].Reviews
         res.render('Rating_Page', {
-            datafound:data
+            datafound:revs
         })
     })    
-})*/
+})
 
 //review stuff
 app.use(bodyParser.urlencoded({extended: true}))
