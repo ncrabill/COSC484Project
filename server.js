@@ -226,14 +226,16 @@ Class.find({Dept:'COSC', Num :'490'},function(error, data){
 app.get("/", checkNotAuthenticated, (req, res) => {
     Dept.find({}, function (err, depts) {
         res.render('index', {
-            deptList: depts
+            deptList: depts,
+            error: ""
         })
     })
 })
 app.get('/index', (req, res) => {
     Dept.find({}, function (err, depts) {
         res.render('index', {
-            deptList: depts
+            deptList: depts,
+            error: ""
         })
     })
 })
@@ -247,6 +249,7 @@ app.get("/authorized", checkAuthenticated, (req, res) => {
     })
 })
 
+
 /*
 app.get("/", checkAuthenticated, (req, res) => {
     res.render("index", { name: req.user.name });
@@ -258,6 +261,15 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
+})
+
+app.get("/*", (req, res)  => {
+    Dept.find({}, function (err, depts) {
+        res.render('index', {
+            deptList: depts,
+            error: "Not a recognized class"
+        })
+    })
 })
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
