@@ -49,7 +49,7 @@ const deptSchema = {
 const Dept = mongoose.model("departments", deptSchema);
 
 
-app.get('/Rating_PageENGL190',(req,res) => {
+/*app.get('/Rating_PageENGL190',(req,res) => {
     Class.find({Dept:'ENGL', Num :190}, function(err,data){
         res.render('Rating_Page', {
             datafound:data
@@ -69,7 +69,7 @@ app.get('/Rating_PageCOSC490',(req,res) => {
             datafound:data
         })
     })    
-})
+})*/
 
 //review stuff
 app.use(bodyParser.urlencoded({extended: true}))
@@ -91,18 +91,20 @@ const classSchema  = mongoose.Schema({
 const Class = mongoose.model("classes", classSchema)
 
 
-Class.find({Dept:'COSC', Num :'490'},function(error, data){
+Class.find({Dept:'COSC', Num :'459'},function(error, data){
     if(error){
         console.log("error")
     }
     else{
-        console.log(JSON.stringify(data));
+        
+        console.log(data[0].Reviews)
     }
 })
 
 //review stuff
 app.get("/", checkNotAuthenticated, (req, res) => {
     Dept.find({}, function(err,depts){
+
         res.render('index', {
             deptList: depts 
         })
@@ -133,9 +135,11 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 })
 
 app.get('/Rating_Page',(req,res) => {
-    Class.find({Dept:DeptOption, Num :classOption}, function(err,data){
+    Class.find({Dept:'COSC', Num :484}, function(err,data){
+        var revs = data[0].Reviews
         res.render('Rating_Page', {
-            datafound:data
+            datafound:revs
+            
         })
     })    
 })
