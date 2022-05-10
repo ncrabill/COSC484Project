@@ -54,9 +54,12 @@ app.get('/Rating_PageENGL290',(req,res) => {
         var array = [];
         var name = 'ENGL 290'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -65,9 +68,12 @@ app.get('/Rating_PageENGL190',(req,res) => {
         var array = [];
         var name = 'ENGL 190'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -76,9 +82,13 @@ app.get('/Rating_PageCOSC490',(req,res) => {
         var array = [];
         var name = 'COSC 490'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
+
         })
     })
 })
@@ -87,9 +97,12 @@ app.get('/Rating_PageMATH330',(req,res) => {
         var array = [];
         var name = 'MATH 330'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -98,9 +111,12 @@ app.get('/Rating_PageMATH345',(req,res) => {
         var array = [];
         var name = 'MATH 345'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -110,9 +126,12 @@ app.get('/Rating_PageCOSC484',(req,res) => {
         var array = [];
         var name = 'COSC 484'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -121,9 +140,12 @@ app.get('/Rating_PageCOSC459',(req,res) => {
         var array = [];
         var name = 'COSC 459'
         array.push(data[0].Reviews)
+        var tarray = [];
+        tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
             datafound:array,
-            title:name
+            title:name,
+            tnames:tarray
         })
     })
 })
@@ -158,21 +180,15 @@ function choose(depart, classOp) {
     classOption = classOp
 }
 
-Class.find({Dept:'COSC', Num :'484'},function(error, data){
+Class.find({Dept:'COSC', Num :'490'},function(error, data){
     if(error){
         console.log("error")
     }
     else{
         var array = [];
-        array.push(data[0].Reviews)
+        array.push(data[0].Teachers)
         array[0].forEach(rev=>{
-            let thing = new Object(rev);
-            console.log(thing.oneWord)
-            console.log(thing.grade)
-            console.log(thing.crating)
-            console.log(thing.professor)
-            console.log(thing.prating)
-            console.log(thing.summary)
+            console.log(rev)
         })
     }
 })

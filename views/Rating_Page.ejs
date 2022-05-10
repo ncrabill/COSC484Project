@@ -69,10 +69,10 @@
         <tr>
           <td><label for="ProfessorTaken">Choose professor Taken</label></td>
           <td><select name="ProfTaken" id="CurrentProfs" required>
-            <option>Jal Irani</option>
-            <option>Randy Valis</option>
-            <option>Josh Dellinger</option>
-            <option>John Auten </option>
+            <%tnames[0].forEach(name=>{%>
+              <option><%=name%></option>
+            <%})%>
+            
           </select>
         </tr>
         
