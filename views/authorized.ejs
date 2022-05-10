@@ -1,54 +1,35 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Register</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <form action = "/logout?_method=DELETE" method="POST">
-        <button type = "submit">LOGOUT</button>
-    </form>
-</body>
-</html>
--->
 <!DOCTYPE html>
 <!--Author: Cole Sandifer -->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="mainpage.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title></title>
-  </head>
+</head>
 
-  <script src="../server.js"></script>
-  <body>
+<script src="../server.js"></script>
+
+<body>
     <header>
-      <div class="container">
-        <nav>
-          <!-- <label for="text"><b>Course Connect</b></label> -->
-          <ul>
-            <li><a href="./index">Home</a></li>
-            <li><a href="./login">Login</a></li>
-            <li><a href="./register">Registration</a></li>
-
-          </ul>
-        </nav>
-      </div>
+        <div class="container">
+            <nav>
+                <!-- <label for="text"><b>Course Connect</b></label> -->
+                <ul>
+                    <li><a href="./authorized">Home</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <br />
     <h1 id="below">Course Connect</h1>
 
     <form autocomplete="off" action="/Rating_Page">
-      <br />
-      <br />
+        <br />
+        <br />
 
-      <label id="sub"
-        >Greetings! Search for your future course to find the top
+        <label id="sub">Greetings! Search for your future course to find the top
         professor</label
       >
       <fieldset id="signup">
@@ -58,9 +39,10 @@
             <td>
               <div class="autocomplete">
                 <select id="department" class="input">
-                  <%deptList.forEach(dept =>{%>
-                  <option><%=dept.Name%></option>
-                  <%})%></select
+                    <%deptList.forEach(dept =>{%>
+                        <option value="%=dept.Name%"><%=dept.Name%></option>
+                    <%})%>
+                  </select
                 ><br />
               </div>
             </td>
@@ -70,7 +52,7 @@
             <td>
               <input
                 class="input"
-                id="classOp"
+                id = "classOp"
                 required
                 name="numField"
                 maxlength="3"
@@ -80,16 +62,7 @@
           </tr>
         </table>
 
-<<<<<<< HEAD
-        <br /><button
-          class="button"
-          onclick='this.form.action=("/Rating_Page" + document.getElementById("department").value + document.getElementById("classOp").value);'
-        >
-          Look for my course
-        </button>
-=======
         <br /><button class="button" onclick="choose(document.getElementById('department').value, document.getElementById('classOp').value)">Look for my course</button>
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
       </fieldset>
     </form>
     <div class="bnav">
