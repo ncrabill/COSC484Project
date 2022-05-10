@@ -41,7 +41,6 @@ app.use(passport.session())
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 
-<<<<<<< HEAD
 const deptSchema = {
     Name: String,
     Classes: [String]
@@ -75,10 +74,6 @@ app.get('/Rating_PageCOSC490',(req,res) => {
 //review stuff
 app.use(bodyParser.urlencoded({extended: true}))
 const reviewSchema = mongoose.Schema ({
-=======
-app.use(bodyParser.urlencoded({ extended: true }))
-const reviewSchema = {
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
     oneWord: String,
     grade: String,
     crating: Number,
@@ -95,13 +90,10 @@ const classSchema  = mongoose.Schema({
 })
 const Class = mongoose.model("classes", classSchema)
 
-<<<<<<< HEAD
-=======
 function choose(depart, classOp) {
     DeptOption = depart
     classOption = classOp
 }
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
 
 Class.find({Dept:'COSC', Num :'459'},function(error, data){
     if(error){
@@ -115,12 +107,7 @@ Class.find({Dept:'COSC', Num :'459'},function(error, data){
 
 //review stuff
 app.get("/", checkNotAuthenticated, (req, res) => {
-<<<<<<< HEAD
-    Dept.find({}, function(err,depts){
-
-=======
     Dept.find({}, function (err, depts) {
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
         res.render('index', {
             deptList: depts
         })
@@ -157,28 +144,17 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
 
-<<<<<<< HEAD
 app.get('/Rating_Page',(req,res) => {
     Class.find({Dept:'COSC', Num :484}, function(err,data){
         var revs = data[0].Reviews
-=======
-app.get('/Rating_Page', (req, res) => {
-    Review.find({}, function (err, reviews) {
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
         res.render('Rating_Page', {
             datafound:revs
             
         })
-<<<<<<< HEAD
-    })    
-})
-app.post("/login", checkAuthenticated, passport.authenticate("local", {
-=======
     })
 })
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
->>>>>>> 434df9ba55f670801d0d4a46fffd746594a6df0f
     successRedirect: "/authorized",
     failureRedirect: "/login",
     failureFlash: true,
