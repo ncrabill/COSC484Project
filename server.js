@@ -69,7 +69,7 @@ const Class = mongoose.model("classes", classSchema)
 module.exports = Class
 var _id = ""
 var path = ""
-app.get('/Rating_PageENGL290',(req,res) => {
+app.get('/Rating_PageENGL290', checkAuthenticated, (req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
         var array = [];
         var name = 'ENGL 290'
@@ -77,6 +77,7 @@ app.get('/Rating_PageENGL290',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -85,7 +86,7 @@ app.get('/Rating_PageENGL290',(req,res) => {
         path = "/Rating_PageENGL290"
     })
 })
-app.get('/Rating_PageENGL190',(req,res) => {
+app.get('/Rating_PageENGL190', checkAuthenticated, (req,res) => {
     Class.find({Dept:'ENGL', Num :190}, function(err,data){
         var array = [];
         var name = 'ENGL 190'
@@ -93,6 +94,7 @@ app.get('/Rating_PageENGL190',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -101,7 +103,7 @@ app.get('/Rating_PageENGL190',(req,res) => {
         path = "/Rating_PageENGL190"
     })
 })
-app.get('/Rating_PageCOSC490',(req,res) => {
+app.get('/Rating_PageCOSC490', checkAuthenticated, (req,res) => {
     Class.find({Dept:'COSC', Num :490}, function(err,data){
         var array = [];
         var name = 'COSC 490'
@@ -109,6 +111,7 @@ app.get('/Rating_PageCOSC490',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -117,7 +120,7 @@ app.get('/Rating_PageCOSC490',(req,res) => {
         path = '/Rating_PageCOSC490'
     })
 })
-app.get('/Rating_PageMATH330',(req,res) => {
+app.get('/Rating_PageMATH330', checkAuthenticated, (req,res) => {
     Class.find({Dept:'MATH', Num :330}, function(err,data){
         var array = [];
         var name = 'MATH 330'
@@ -125,6 +128,7 @@ app.get('/Rating_PageMATH330',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -133,7 +137,7 @@ app.get('/Rating_PageMATH330',(req,res) => {
         path = "/Rating_PageMATH330"
     })
 })
-app.get('/Rating_PageMATH345',(req,res) => {
+app.get('/Rating_PageMATH345', checkAuthenticated, (req,res) => {
     Class.find({Dept:'MATH', Num :345}, function(err,data){
         var array = [];
         var name = 'MATH 345'
@@ -141,6 +145,7 @@ app.get('/Rating_PageMATH345',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -150,7 +155,7 @@ app.get('/Rating_PageMATH345',(req,res) => {
     })
 })
 
-app.get('/Rating_PageCOSC484',(req,res) => {
+app.get('/Rating_PageCOSC484', checkAuthenticated, (req,res) => {
     Class.find({Dept:'COSC', Num :484}, function(err,data){
         var array = [];
         var name = 'COSC 484'
@@ -158,6 +163,7 @@ app.get('/Rating_PageCOSC484',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -167,7 +173,7 @@ app.get('/Rating_PageCOSC484',(req,res) => {
     })
 })
 
-app.get('/Rating_PageCOSC459',(req,res) => {
+app.get('/Rating_PageCOSC459', checkAuthenticated, (req,res) => {
     Class.find({Dept:'COSC', Num :459}, function(err,data){
         var array = [];
         var name = 'COSC 459'
@@ -175,6 +181,7 @@ app.get('/Rating_PageCOSC459',(req,res) => {
         var tarray = [];
         tarray.push(data[0].Teachers)
         res.render('Rating_Page', {
+            name: req.user.name,
             datafound:array,
             title:name,
             tnames:tarray
@@ -231,7 +238,6 @@ app.get('/index', (req, res) => {
     })
 })
 
-
 app.get("/authorized", checkAuthenticated, (req, res) => {
     Dept.find({}, function (err, depts) {
         res.render('authorized', {
@@ -253,8 +259,6 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
-
-
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/authorized",

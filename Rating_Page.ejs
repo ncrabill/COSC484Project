@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Professor Rating</title>
+    <script src="../server.js"></script>
+    <link rel="stylesheet" href="/Rating_Page.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="./authorized">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div>
+      <br>
+      <h1>Course Connect</h1>
+      <h1 id="TuName">Towson University</h1>
+    </div>
+    <div>
+      <!-- id ClassName is the id of the Course Name-->
+      <h2 id="ClassName"><b><i>COURSE: </i></b><%=title%></h2>
+      <!--id PrefProf is the id of the Preffered Professor-->
+      <h3 id="PrefProf">Ranked Professors</h3>
+    </div>
+    
+
+    <h2><u>Add your Review</u></h2>
+    <!--ADD REVIEW FORM START-->
+
+    <form id="AddReview" method="post" action = "/" value = onSumbit>
+      <table>
+      <div class="form-group">
+        <tr>
+          <td><label for="RevHeader">One word Rating</label></td>
+          <td><select id="RevHeader" name = 'OneWordRev' required>
+            <option value="Great" style="background-color: green;">Great</option>
+            <option value = "Good" style="background-color: lightgreen;">Good</option>
+            <option value="Neutral" style="background-color: gray;">Neutral</option>
+            <option value = "Bad" style="background-color: orange;">Bad</option>
+            <option value = "Terrible" style="background-color: red;">Terrible</option>
+          </select></td>
+        </tr>
+        <tr>
+        <td><label for="Grade">Earned Grade</label></td>
+        <td ><select id="Grade" name = 'LetterGrade' required>
+          <option value="A" style="background-color: green;">A</option>
+          <option value="B" style="background-color: lightgreen;">B</option>
+          <option value="C" style="background-color: gray;">C</option>
+          <option value="D" style="background-color: orange;">D</option>
+          <option value="F" style="background-color: red;">F</option>
+        </select></td>
+        </tr>
+        <tr>
+        <td><label for = "NumRating">Class Rating(1-10)</label></td>
+        <td><input type="number" id = "NumRating" name = "NumRating" min = 1 max = 10 required></td>
+        </tr>
+        <tr>
+          <td><label for="ProfessorTaken">Choose professor Taken</label></td>
+          <td><select name="ProfTaken" id="CurrentProfs" required>
+            <%tnames[0].forEach(name=>{%>
+              <option><%=name%></option>
+            <%})%>
+            
+          </select>
+        </tr>
+        
+        <tr>
+          <td><Label for = "ProfRating">Professor Rating(1-10)</Label></td>
+          <td><input type="number" id="ProfRating" name = ProfRating min="1" max="10" required></td>
+        </tr>
+      </table>
+      <span><b>Write Your Review:</b></span><br/>
+      <textarea id="Summary" name = "Summary" cols="50" rows="10"></textarea><br/>
+      
+      <button
+       type="submit" id = SubmitReview> Submit Review</button>
+      </div>
+    </form>
+    <!--ADD REVIEW FORM END -->
+    <!-- Reviews Start-->
+
+    <h2 id="Reviews"><u>Reviews</u></h2>
+    
+<%datafound[0].forEach(data =>{%>
+  <%let thing = new Object(data);%>
+
+        <div class="card">
+            <div class="profile-sidebar">
+              <img src="/towson.png" alt="" id="tuImage" />
+            </div>
+      
+            <div class="Review-main">
+              <h2 id="OWRating"><%=thing.oneWord%></h2>
+              <p id="ErGrade"><b><i>Grade: </i></b><%=thing.grade%></p>
+              <p id="RateNum"><b><i>Class Rating: </i></b><%=thing.crating%></p>
+              <p id="ProfTaken"><b><i>Professor: </i></b><%=thing.professor%></p>
+              <p id="ProfNum"><b><i>Professor Rating: </i></b><%=thing.prating%></p>
+              <p id="WrittemRev"><p><b><i><u>Summary</u></i></b></p><%=thing.summary%></p>
+            </div>
+          </div>
+    <%})%>    
+  
+    <div class="bnav">
+      <a href="https:www.facebook.com/towsonuniversity" target="_blank" class="fa fa-facebook"></a>
+      <a href="https://twitter.com/TowsonU" target="_blank" class="fa fa-twitter"></a>
+      <a href="https://www.instagram.com/towsonuniversity/" target="_blank" class="fa fa-instagram"></a>    
+      </div>
+
+   
+  </body>
+</html>
