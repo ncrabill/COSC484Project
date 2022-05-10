@@ -16,6 +16,7 @@ const {
 const app = express()
 
 const initializePassport = require("./passport-config");
+const { next } = require('cheerio/lib/api/traversing')
 initializePassport(
     passport,
     async (email) => {
@@ -65,6 +66,9 @@ const classSchema  = mongoose.Schema({
     Reviews : [reviewSchema]
 })
 const Class = mongoose.model("classes", classSchema)
+module.exports = Class
+var _id = ""
+var path = ""
 app.get('/Rating_PageENGL290',(req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
         var array = [];
@@ -77,6 +81,8 @@ app.get('/Rating_PageENGL290',(req,res) => {
             title:name,
             tnames:tarray
         })
+        _id = "6276ef0fc27b2aa5e21eb8bc"
+        path = "/Rating_PageENGL290"
     })
 })
 app.get('/Rating_PageENGL190',(req,res) => {
@@ -91,6 +97,8 @@ app.get('/Rating_PageENGL190',(req,res) => {
             title:name,
             tnames:tarray
         })
+        _id ="6276eef4c27b2aa5e21eb8bb"
+        path = "/Rating_PageENGL190"
     })
 })
 app.get('/Rating_PageCOSC490',(req,res) => {
@@ -104,8 +112,9 @@ app.get('/Rating_PageCOSC490',(req,res) => {
             datafound:array,
             title:name,
             tnames:tarray
-
         })
+        _id = "6276eeddc27b2aa5e21eb8ba";
+        path = '/Rating_PageCOSC490'
     })
 })
 app.get('/Rating_PageMATH330',(req,res) => {
@@ -120,6 +129,8 @@ app.get('/Rating_PageMATH330',(req,res) => {
             title:name,
             tnames:tarray
         })
+        _id = "6276ef2cc27b2aa5e21eb8bd"
+        path = "/Rating_PageMATH330"
     })
 })
 app.get('/Rating_PageMATH345',(req,res) => {
@@ -134,6 +145,8 @@ app.get('/Rating_PageMATH345',(req,res) => {
             title:name,
             tnames:tarray
         })
+        _id = "6276ef4bc27b2aa5e21eb8be";
+        path = "/Rating_PageMATH345"
     })
 })
 
@@ -149,9 +162,11 @@ app.get('/Rating_PageCOSC484',(req,res) => {
             title:name,
             tnames:tarray
         })
+        _id = "6276eebdc27b2aa5e21eb8b9",
+        path = "/Rating_PageCOSC484"
     })
 })
-module.exports = Class
+
 app.get('/Rating_PageCOSC459',(req,res) => {
     Class.find({Dept:'COSC', Num :459}, function(err,data){
         var array = [];
@@ -164,23 +179,8 @@ app.get('/Rating_PageCOSC459',(req,res) => {
             title:name,
             tnames:tarray
         })
-        var review
-        app.post("/", function (req, res) {
-            Class.findByIdAndUpdate(
-                "6279546521a37b0aef662b18",
-                {$push: {"Reviews": {oneWord: req.body.OneWordRev,
-                    grade: req.body.LetterGrade,
-                    crating: req.body.NumRating,
-                    professor: req.body.ProfTaken,
-                    prating: req.body.ProfRating,
-                    summary: req.body.Summary}}},
-                {safe: true, upsert: true},
-                function(err, model) {
-                    console.log(err);
-                }
-            );
-            res.redirect("/Rating_PageCOSC459");
-        });
+        _id = "6279546521a37b0aef662b18";
+        path = "/Rating_PageCOSC459"
     })
 })
 //review stuff
@@ -294,6 +294,22 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
     review.save();
     res.redirect("/Rating_Page");
 });*/
+app.post("/", function (req, res) {
+    Class.findByIdAndUpdate(
+        _id,
+        {$push: {"Reviews": {oneWord: req.body.OneWordRev,
+            grade: req.body.LetterGrade,
+            crating: req.body.NumRating,
+            professor: req.body.ProfTaken,
+            prating: req.body.ProfRating,
+            summary: req.body.Summary}}},
+        {safe: true, upsert: true},
+        function(err, model) {
+            console.log(err);
+        }
+    );
+    res.redirect(path);
+});
 
 mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
