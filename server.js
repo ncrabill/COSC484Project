@@ -52,45 +52,55 @@ const Dept = mongoose.model("departments", deptSchema);
 app.get('/Rating_PageENGL290',(req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
         var array = [];
+        var name = 'ENGL 290'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
 app.get('/Rating_PageENGL190',(req,res) => {
     Class.find({Dept:'ENGL', Num :190}, function(err,data){
         var array = [];
+        var name = 'ENGL 190'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
 app.get('/Rating_PageCOSC490',(req,res) => {
     Class.find({Dept:'COSC', Num :490}, function(err,data){
         var array = [];
+        var name = 'COSC 490'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
 app.get('/Rating_PageMATH330',(req,res) => {
     Class.find({Dept:'MATH', Num :330}, function(err,data){
         var array = [];
+        var name = 'MATH 330'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
 app.get('/Rating_PageMATH345',(req,res) => {
     Class.find({Dept:'MATH', Num :345}, function(err,data){
         var array = [];
+        var name = 'MATH 345'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
@@ -98,18 +108,22 @@ app.get('/Rating_PageMATH345',(req,res) => {
 app.get('/Rating_PageCOSC484',(req,res) => {
     Class.find({Dept:'COSC', Num :484}, function(err,data){
         var array = [];
+        var name = 'COSC 484'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
 app.get('/Rating_PageCOSC459',(req,res) => {
     Class.find({Dept:'COSC', Num :459}, function(err,data){
         var array = [];
+        var name = 'COSC 459'
         array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:array
+            datafound:array,
+            title:name
         })
     })
 })
