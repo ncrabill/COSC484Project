@@ -25,13 +25,14 @@ li a:hover {
     color: white;
 }
 
-h1 
+h1 {
     color: black;
     text-align: center;
 }
 
 h2 {
     font-weight: bold;
+    text-align: center;
 }
 
 html {
@@ -43,6 +44,7 @@ body {
     margin: 0 auto;
     font-family: sans-serif;
     margin: 10px;
+    align-items: center;
     line-break: loose;
     background-size: auto;
     background: linear-gradient(orange, white) no-repeat center center fixed;
@@ -125,6 +127,9 @@ textarea {
     height: 100px;
 }
 
+.PrefProf {
+    text-align: center;
+}
 
 /*bottom nav bar*/
 
@@ -135,6 +140,7 @@ textarea {
     bottom: 0;
     width: 100%;
     height: auto;
+    margin-left: -10px;
 }
 
 .fa {
