@@ -26,7 +26,6 @@
     <div>
       <br>
       <h1><%-datafound%></h1>
-    
 
       <h1>Course Connect</h1>
       <h1 id="TuName">Towson University</h1>
@@ -96,6 +95,24 @@
 
     <h2 id="Reviews"><u>Reviews</u></h2>
     
+<%datafound[0].forEach(data =>{%>
+  <%let thing = new Object(data);%>
+
+        <div class="card">
+            <div class="profile-sidebar">
+              <img src="/towson.png" alt="" id="tuImage" />
+            </div>
+      
+            <div class="Review-main">
+              <h2 id="OWRating"><%=thing.oneWord%></h2>
+              <p id="ErGrade"><b><i>Grade: </i></b><%=thing.grade%></p>
+              <p id="RateNum"><b><i>Class Rating: </i></b><%=thing.crating%></p>
+              <p id="ProfTaken"><b><i>Professor: </i></b><%=thing.professor%></p>
+              <p id="ProfNum"><b><i>Professor Rating: </i></b><%=thing.prating%></p>
+              <p id="WrittemRev"><p><b><i><u>Summary</u></i></b></p><%=thing.summary%></p>
+            </div>
+          </div>
+    <%})%>    
   
     <div class="bnav">
       <a href="https:www.facebook.com/towsonuniversity" target="_blank" class="fa fa-facebook"></a>

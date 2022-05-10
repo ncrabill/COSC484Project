@@ -49,31 +49,70 @@ const deptSchema = {
 const Dept = mongoose.model("departments", deptSchema);
 
 
-app.get('/Rating_PageENGL190',(req,res) => {
-    Class.find({Dept:'ENGL', Num :190}, function(err,data){
-        var revs = data[0].Reviews
-        res.render('Rating_Page', {
-            datafound:revs
-        })
-    })    
-})
 app.get('/Rating_PageENGL290',(req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
-        var revs = data[0].Reviews
+        var array = [];
+        array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:revs
+            datafound:array
         })
-    })    
+    })
+})
+app.get('/Rating_PageENGL190',(req,res) => {
+    Class.find({Dept:'ENGL', Num :190}, function(err,data){
+        var array = [];
+        array.push(data[0].Reviews)
+        res.render('Rating_Page', {
+            datafound:array
+        })
+    })
 })
 app.get('/Rating_PageCOSC490',(req,res) => {
     Class.find({Dept:'COSC', Num :490}, function(err,data){
-        var revs = data[0].Reviews
+        var array = [];
+        array.push(data[0].Reviews)
         res.render('Rating_Page', {
-            datafound:revs
+            datafound:array
         })
-    })    
+    })
+})
+app.get('/Rating_PageMATH330',(req,res) => {
+    Class.find({Dept:'MATH', Num :330}, function(err,data){
+        var array = [];
+        array.push(data[0].Reviews)
+        res.render('Rating_Page', {
+            datafound:array
+        })
+    })
+})
+app.get('/Rating_PageMATH345',(req,res) => {
+    Class.find({Dept:'MATH', Num :345}, function(err,data){
+        var array = [];
+        array.push(data[0].Reviews)
+        res.render('Rating_Page', {
+            datafound:array
+        })
+    })
 })
 
+app.get('/Rating_PageCOSC484',(req,res) => {
+    Class.find({Dept:'COSC', Num :484}, function(err,data){
+        var array = [];
+        array.push(data[0].Reviews)
+        res.render('Rating_Page', {
+            datafound:array
+        })
+    })
+})
+app.get('/Rating_PageCOSC459',(req,res) => {
+    Class.find({Dept:'COSC', Num :459}, function(err,data){
+        var array = [];
+        array.push(data[0].Reviews)
+        res.render('Rating_Page', {
+            datafound:array
+        })
+    })
+})
 //review stuff
 app.use(bodyParser.urlencoded({extended: true}))
 const reviewSchema = mongoose.Schema ({
@@ -89,7 +128,14 @@ const classSchema  = mongoose.Schema({
     Dept: String,
     Num : Number,
     Teachers : [String] ,
-    Reviews : [reviewSchema]
+    Reviews : [{
+    oneWord: String,
+    grade: String,
+    crating: Number,
+    professor: String,
+    prating: Number,
+    summary: String
+    }]
 })
 const Class = mongoose.model("classes", classSchema)
 
@@ -98,13 +144,22 @@ function choose(depart, classOp) {
     classOption = classOp
 }
 
-Class.find({Dept:'COSC', Num :'459'},function(error, data){
+Class.find({Dept:'COSC', Num :'484'},function(error, data){
     if(error){
         console.log("error")
     }
     else{
-        
-        console.log(data[0].Reviews)
+        var array = [];
+        array.push(data[0].Reviews)
+        array[0].forEach(rev=>{
+            let thing = new Object(rev);
+            console.log(thing.oneWord)
+            console.log(thing.grade)
+            console.log(thing.crating)
+            console.log(thing.professor)
+            console.log(thing.prating)
+            console.log(thing.summary)
+        })
     }
 })
 
@@ -147,15 +202,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login")
 })
 
-app.get('/Rating_Page',(req,res) => {
-    Class.find({Dept:'COSC', Num :484}, function(err,data){
-        var revs = data[0].Reviews
-        res.render('Rating_Page', {
-            datafound:revs
-            
-        })
-    })
-})
+
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/authorized",
