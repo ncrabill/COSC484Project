@@ -1,3 +1,20 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <form action = "/logout?_method=DELETE" method="POST">
+        <button type = "submit">LOGOUT</button>
+    </form>
+</body>
+</html>
+-->
 <!DOCTYPE html>
 <!--Author: Cole Sandifer -->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -39,10 +56,9 @@
             <td>
               <div class="autocomplete">
                 <select id="department" class="input">
-                    <%deptList.forEach(dept =>{%>
-                        <option value="%=dept.Name%"><%=dept.Name%></option>
-                    <%})%>
-                  </select
+                  <%deptList.forEach(dept =>{%>
+                  <option><%=dept.Name%></option>
+                  <%})%></select
                 ><br />
               </div>
             </td>
@@ -52,7 +68,7 @@
             <td>
               <input
                 class="input"
-                id = "classOp"
+                id="classOp"
                 required
                 name="numField"
                 maxlength="3"
@@ -62,7 +78,12 @@
           </tr>
         </table>
 
-        <br /><button class="button" onclick="choose(document.getElementById('department').value, document.getElementById('classOp').value)">Look for my course</button>
+        <br /><button
+          class="button"
+          onclick='this.form.action=("/Rating_Page" + document.getElementById("department").value + document.getElementById("classOp").value);'
+        >
+          Look for my course
+        </button>
       </fieldset>
     </form>
     <div class="bnav">
