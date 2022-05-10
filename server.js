@@ -267,7 +267,7 @@ app.get("/Rating_Page*", (req, res)  => {
     Dept.find({}, function (err, depts) {
         res.render('index', {
             deptList: depts,
-            error: "Not a recognized class"
+            error: "Chosen class has no reviews"
         })
     })
 })
