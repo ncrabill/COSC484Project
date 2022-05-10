@@ -282,18 +282,7 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
         }
     }
 })
-/*app.post("/", function (req, res) {
-    let review = new Review({
-        oneWord: req.body.OneWordRev,
-        grade: req.body.LetterGrade,
-        crating: req.body.NumRating,
-        professor: req.body.ProfTaken,
-        prating: req.body.ProfRating,
-        summary: req.body.Summary
-    });
-    review.save();
-    res.redirect("/Rating_Page");
-});*/
+
 app.post("/", function (req, res) {
     Class.findByIdAndUpdate(
         _id,
