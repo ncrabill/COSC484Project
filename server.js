@@ -48,7 +48,23 @@ const deptSchema = {
 
 const Dept = mongoose.model("departments", deptSchema);
 
-
+app.use(bodyParser.urlencoded({extended: false}))
+const reviewSchema = mongoose.Schema ({
+    oneWord: String,
+    grade: String,
+    crating: Number,
+    professor: String,
+    prating: Number,
+    summary: String
+})
+const Review = mongoose.model("Reviews", reviewSchema);
+const classSchema  = mongoose.Schema({
+    Dept: String,
+    Num : Number,
+    Teachers : [String] ,
+    Reviews : [reviewSchema]
+})
+const Class = mongoose.model("classes", classSchema)
 app.get('/Rating_PageENGL290',(req,res) => {
     Class.find({Dept:'ENGL', Num :290}, function(err,data){
         var array = [];
@@ -135,6 +151,7 @@ app.get('/Rating_PageCOSC484',(req,res) => {
         })
     })
 })
+module.exports = Class
 app.get('/Rating_PageCOSC459',(req,res) => {
     Class.find({Dept:'COSC', Num :459}, function(err,data){
         var array = [];
@@ -147,33 +164,38 @@ app.get('/Rating_PageCOSC459',(req,res) => {
             title:name,
             tnames:tarray
         })
+        var review
+        app.post("/", function (req, res) {
+            Class.findByIdAndUpdate(
+                "6279546521a37b0aef662b18",
+                {$push: {"Reviews": {oneWord: req.body.OneWordRev,
+                    grade: req.body.LetterGrade,
+                    crating: req.body.NumRating,
+                    professor: req.body.ProfTaken,
+                    prating: req.body.ProfRating,
+                    summary: req.body.Summary}}},
+                {safe: true, upsert: true},
+                function(err, model) {
+                    console.log(err);
+                }
+            );
+            res.redirect("/Rating_PageCOSC459");
+        });
     })
 })
 //review stuff
-app.use(bodyParser.urlencoded({extended: true}))
-const reviewSchema = mongoose.Schema ({
-    oneWord: String,
-    grade: String,
-    crating: Number,
-    professor: String,
-    prating: Number,
-    summary: String
-})
-const Review = mongoose.model("reviews", reviewSchema);
-const classSchema  = mongoose.Schema({
-    Dept: String,
-    Num : Number,
-    Teachers : [String] ,
-    Reviews : [{
-    oneWord: String,
-    grade: String,
-    crating: Number,
-    professor: String,
-    prating: Number,
-    summary: String
-    }]
-})
-const Class = mongoose.model("classes", classSchema)
+/*app.post("/", function (req, res) {
+    let review = new Review({
+        oneWord: req.body.OneWordRev,
+        grade: req.body.LetterGrade,
+        crating: req.body.NumRating,
+        professor: req.body.ProfTaken,
+        prating: req.body.ProfRating,
+        summary: req.body.Summary
+    });
+    review.save();
+    res.redirect("/Rating_Page");
+});*/
 
 function choose(depart, classOp) {
     DeptOption = depart
@@ -260,7 +282,7 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
         }
     }
 })
-app.post("/", function (req, res) {
+/*app.post("/", function (req, res) {
     let review = new Review({
         oneWord: req.body.OneWordRev,
         grade: req.body.LetterGrade,
@@ -271,7 +293,7 @@ app.post("/", function (req, res) {
     });
     review.save();
     res.redirect("/Rating_Page");
-});
+});*/
 
 mongoose.connect('mongodb+srv://finalproj484:IraniIsTheGoat@cluster0.od6wa.mongodb.net/finalproj484?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
