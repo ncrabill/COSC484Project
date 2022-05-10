@@ -102,6 +102,7 @@ fieldset{
     background-color:goldenrod;
     color: #ffffff;
 }
+
 button{
     border-radius: 6px;
     border: black;
@@ -111,6 +112,12 @@ button{
     width: 200px; 
     height: 50px;
     font-size: 20px;
+}
+
+button:hover{
+    color: black;
+    background: rgb(252, 201, 74);
+    box-shadow: 0 0 10px goldenrod, 0 0 40px yellow, 0 0 80px yellow;
 }
 
 .context{

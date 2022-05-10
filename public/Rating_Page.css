@@ -111,15 +111,18 @@ textarea {
 
 .card {
     box-shadow: 5px 10px 8px 10px black;
-    width: 80%;
+    width: 40%;
+    height: 50%;
     max-width: 800px;
-    display: flex;
+    min-height: 50%;
+    display: inline-block;
     flex-direction: column;
     text-align: center;
     background-color: darkgoldenrod;
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 30px;
+    margin-left: 6%;
 }
 
 #tuImage {
